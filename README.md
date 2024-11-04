@@ -1,6 +1,7 @@
 <div align = center>
-  
-<img src="https://github.com/Nooberieno/jura/assets/124163902/b6c38f9d-1d98-4a23-94e3-f9a075a83c6b" height="500" width="500">
+
+![logo](https://github.com/user-attachments/assets/07834f35-49c0-4e05-9536-08cac8d52545)
+
 
 <br>  
 
@@ -39,7 +40,8 @@ the jura installation guide you can check the wiki https://github.com/Nooberieno
 all bugs/issues for jura should reported by following the [security policy](https://github.com/Nooberieno/jura/blob/main/SECURITY.md)
 
 # Roadmap
-a list of all features that I want to add to jura
+a list of all features that I want to add t![text1](https://github.com/user-attachments/assets/a9fe1827-6c98-49da-b31c-a299c66ebc98)
+o jura
 ## Configuration
 - rework the configuration system
 - allow the keybinds to be configurable to a certain degree (like all keybinds being Ctrl + a key that can be configured)
