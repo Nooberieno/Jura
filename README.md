@@ -1,6 +1,9 @@
 <div align = center>
-
-![logo](https://github.com/user-attachments/assets/07834f35-49c0-4e05-9536-08cac8d52545)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/07834f35-49c0-4e05-9536-08cac8d52545">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/4d52e51b-2294-4aaf-9546-d1fb15c0a733">
+  <img src="https://github.com/user-attachments/assets/07834f35-49c0-4e05-9536-08cac8d52545" alt="Jura Logo">
+</picture>
 
 
 <br>  
@@ -30,6 +33,7 @@ for more information check the [official wiki](https://github.com/Nooberieno/jur
 for any information you can reference the official wiki at https://github.com/Nooberieno/jura/wiki, this tells you how to install, setup and use jura  
 
 jura is officially available via the AUR at https://aur.archlinux.org/packages/jura, jura is not officially available anywhere else  
+
 
 report any bugs or issues here https://github.com/Nooberieno/jura/issues
 
