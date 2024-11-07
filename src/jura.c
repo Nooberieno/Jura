@@ -26,7 +26,7 @@ void init(){ //Intialize the editor config
 	config.statusmsg[0] = '\0';
 	config.statusmsg_time = 0;
 	config.syntax = NULL;
-	if(getWindowSize(&config.screenlines, &config.screencols) == -1) die("getWindowSize");
+	if(getWindowSize(&config.screenlines, &config.screencols) == -1) die("Failed to get window size");
 	config.screenlines -= 2;
 }
 
@@ -73,7 +73,7 @@ int main(int argc, char *argv[]){ //main program loop
 	while (1){
 	struct winsize ws;
 	if(ioctl(STDOUT_FILENO, TIOCGWINSZ, &ws) != -1 && ws.ws_col != config.screencols && ws.ws_row != config.screenlines){
-		if(getWindowSize(&config.screenlines, &config.screencols) == -1) die("getWindowSize"); 
+		if(getWindowSize(&config.screenlines, &config.screencols) == -1) die("Failed to get window size"); 
 		config.screenlines -= 2;
 	}
 		RefreshScreen();

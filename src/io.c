@@ -34,7 +34,7 @@ void Open(char *filename){ //Open a file
 	config.filename = strdup(filename);
 	SelectSyntaxHighlight();
 	FILE *file = fopen(filename, "r");
-	if(!file) die("fopen");
+	if(!file) die("Failed to read file");
 	char *line = NULL;
 	size_t linecap = 0;
 	ssize_t lijnen;

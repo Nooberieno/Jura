@@ -9,8 +9,8 @@
 #include "include/terminal.h"
 
 void die(const char *s){ //if an error occurers, reset the terminal settings, sow the error and exit the program
-	if(write(STDOUT_FILENO, "\x1b[2J", 4) == -1) perror("write error");
-	if(write(STDOUT_FILENO, "\x1b[H", 3) == -1) perror("write error"); 
+	if(write(STDOUT_FILENO, "\x1b[2J", 4) == -1) perror("Failed to clear the terminal screen");
+	if(write(STDOUT_FILENO, "\x1b[H", 3) == -1) perror("Failed to set cursor back to its normal position"); 
 	if(tcsetattr(STDIN_FILENO, TCSAFLUSH, &config.og_terminal) == -1){ 
 		perror("tcsetattr");
 		exit(1);
@@ -20,11 +20,11 @@ void die(const char *s){ //if an error occurers, reset the terminal settings, so
 }
 
 void disableRawMode(){ //get the terminal out of rawmode
-	if(tcsetattr(STDIN_FILENO, TCSAFLUSH, &config.og_terminal) == -1) die("tcsetattr");
+	if(tcsetattr(STDIN_FILENO, TCSAFLUSH, &config.og_terminal) == -1) die("Failed to change terminal attributes");
 }
 
 void enableRawMode(){ //set the terminal into raw mode(allow for jura to register keypresses without the user pressing enter)
-	if (tcgetattr(STDIN_FILENO, &config.og_terminal) == -1) die("tcgetattr"); 
+	if (tcgetattr(STDIN_FILENO, &config.og_terminal) == -1) die("Failed to get terminal attributes"); 
 	atexit(disableRawMode); 
 	struct termios raw = config.og_terminal; 
 	raw.c_iflag &= ~(BRKINT | ICRNL | INPCK | ISTRIP | IXON); 
@@ -33,14 +33,14 @@ void enableRawMode(){ //set the terminal into raw mode(allow for jura to registe
 	raw.c_lflag &= ~(ECHO | ICANON | IEXTEN | ISIG); 
 	raw.c_cc[VMIN] = 0;
 	raw.c_cc[VTIME] = 1;
-	if (tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw) == -1) die("tcsetattr"); 
+	if (tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw) == -1) die("Failed to change terminal attributes"); 
 }
 
 int ReadKey(){ //read the keypresses from the users and check for certain modifier keys
 	int nread;
 	char c;
 	while((nread=read(STDIN_FILENO, &c, 1)) != 1){
-		if(nread == -1 && errno != EAGAIN) die("read");
+		if(nread == -1 && errno != EAGAIN) die("Failed to read keypresses");
 	}
 	if(c != '\x1b') return c;
 	char seq[3];
