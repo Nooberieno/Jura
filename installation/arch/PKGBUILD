@@ -1,0 +1,27 @@
+#Maintainer: Nooberieno <nooberieno.dev@gmail.com>
+pkgname='jura'
+pkgver=5.0
+pkgrel=5
+epoch=5
+pkgdesc="A lightweight terminal text editor"
+arch=('any')
+url="https://github.com/Nooberieno/jura"
+license=('MIT')
+depends=('glibc')
+makedepends=('make' 'gcc')
+changelog='CHANGELOG.md'
+source=("https://github.com/Nooberieno/jura/archive/refs/tags/$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+	cd "$srcdir/$pkgname-$pkgver"
+	make jura
+}
+
+package() {
+	cd "$srcdir/$pkgname-$pkgver"
+	install -Dm775 ./jura "$pkgdir/usr/bin/$pkgname"
+	install -Dm644 ./README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+	install -Dm644 ./CHANGELOG.md "$pkgdir/usr/share/doc/$pkgname/CHANGELOG.md"
+	install -Dm644 ./LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
