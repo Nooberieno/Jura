@@ -73,11 +73,11 @@ void Golf(){ //Go to the line the user typed in as a query
 	char *query = Prompt("Go to line: %s (ESC to cancel)", NULL);
 	if(query == NULL) return;
 	int i = atoi(query);
-	if(i == 0 || i > config.numlines){
+	if(i <= 0 || i > config.numlines){
 		SetStatusMessage("Not a valid line number");
 		free(query);
 		return;
-	}else if(i > 0 && i < config.numlines){
+	}else if(i > 0 && i <= config.numlines){
 		config.y = i - 1;
 		config.x = 0;
 	}

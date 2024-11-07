@@ -3,7 +3,7 @@
 
 #define CurrentJuraVersion "5.0"
 #define JuraTabStop 4
-#define JuraQuitTimes 2
+#define JuraQuitTimes 1
 #define CTRL_KEY(k) (k & 0x1f)
 
 typedef enum Key{
