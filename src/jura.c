@@ -33,10 +33,17 @@ void init(){ //Intialize the editor config
 int main(int argc, char *argv[]){ //main program loop
 	enableRawMode();
 	init();
-	char *home_dir = getenv("HOME");
 	char config_path[256];
-	strcpy(config_path, home_dir);
-	strcat(config_path, "/config.jura");
+	char* XDG = getenv("XDG_CONFIG_HOME");
+	if(XDG == NULL){
+		char* home_dir = getenv("HOME");
+		strcpy(config_path, home_dir);
+		strcat(config_path, "/.config/config.jura");
+	}else{
+		strcpy(config_path, XDG);
+		strcat(config_path, "/config.jura");
+	}
+	
 	if(argc == 3 && strcmp(argv[1], "setconfig") == 0){
 		if(strcmp(argv[2], "default") == 0){
 			DefaultConfig();
