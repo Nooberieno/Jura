@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <unistd.h>
+#include <stdio.h>
 
 #include "include/input.h"
 #include "include/output.h"
@@ -107,8 +108,8 @@ void ProcessKeypress(){ //Tell jura what to do when certain keys are pressed
 			quit_times--; 
 			return;
 		}
-		write(STDOUT_FILENO, "\x1b[2J", 4);
-		write(STDOUT_FILENO, "\x1b[H", 3); 
+		if(write(STDOUT_FILENO, "\x1b[2J", 4) == -1) perror("write error");
+		if(write(STDOUT_FILENO, "\x1b[H", 3) == -1) perror("write error");
 		CleanConfig();
 		exit(0); 
 		break;

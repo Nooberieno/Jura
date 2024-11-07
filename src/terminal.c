@@ -9,8 +9,8 @@
 #include "include/terminal.h"
 
 void die(const char *s){ //if an error occurers, reset the terminal settings, sow the error and exit the program
-	write(STDOUT_FILENO, "\x1b[2J", 4); 
-	write(STDOUT_FILENO, "\x1b[H", 3); 
+	if(write(STDOUT_FILENO, "\x1b[2J", 4) == -1) perror("write error");
+	if(write(STDOUT_FILENO, "\x1b[H", 3) == -1) perror("write error"); 
 	if(tcsetattr(STDIN_FILENO, TCSAFLUSH, &config.og_terminal) == -1){ 
 		perror("tcsetattr");
 		exit(1);
