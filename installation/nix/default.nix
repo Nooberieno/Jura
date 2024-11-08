@@ -7,7 +7,7 @@ pkgs.stdenv.mkDerivation rec{
 	src = pkgs.fetchFromGithub {
 		owner = "Nooberieno";
 		repo = "jura";
-		rev = "jura-rewrite";
+		rev = ${version};
 		sha256 = "";
 	};
 
