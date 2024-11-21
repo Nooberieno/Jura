@@ -109,7 +109,7 @@ void UpdateSyntax(eline *line){ //Update the color based on the type of syntax
 		UpdateSyntax(&config.line[line->idx + 1]);
 }
 
-void SelectSyntaxHighlight(){ //Set the syntax highlight according to the file extensions and flags in SyntaxDatabaseEntries located in syntax.c
+void SelectSyntaxHighlight(void){ //Set the syntax highlight according to the file extensions and flags in SyntaxDatabaseEntries located in syntax.c
 	config.syntax = NULL;
 	if(config.filename == NULL) return;
 	char *ext = strrchr(config.filename, '.');

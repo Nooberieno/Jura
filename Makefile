@@ -1,4 +1,4 @@
-CC := gcc
+CC := clang
 CFLAGS := -std=c99 -D_POSIX_C_SOURCE=200809L -Wextra -Wall -pedantic
 INSTALL_DIR := /usr/local/bin
 

@@ -5,6 +5,6 @@ char *LinesToString(int *buflen);
 
 void Open(char *filename);
 
-void Save();
+void Save(void);
 
 #endif

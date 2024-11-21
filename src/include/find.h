@@ -3,8 +3,8 @@
 
 void FindCallback(char *query, int key);
 
-void Find();
+void Find(void);
 
-void Golf();
+void Golf(void);
 
 #endif

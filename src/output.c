@@ -11,7 +11,7 @@
 #include "include/UserConfig.h"
 #include "include/syntax_highlighting.h"
 
-void Scroll(){ //Tells jura what to do in certain scroll edgecases
+void Scroll(void){ //Tells jura what to do in certain scroll edgecases
 	config.renderx = 0;
 	if(config.y < config.numlines){
 		config.renderx = LineXToRenderx(&config.line[config.y], config.x);
@@ -141,7 +141,7 @@ void DrawMessageBar(struct buffer *buff){ //Set the botom message bar
 	if(msglen && time(NULL) - config.statusmsg_time < 5) AttachBuffer(buff, config.statusmsg, msglen);
 }
 
-void RefreshScreen(){ //Refresh the screen
+void RefreshScreen(void){ //Refresh the screen
 	Scroll();
 	struct buffer buff = StartBuffer;
 	AttachBuffer(&buff, "\x1b[?25l", 6);

@@ -5,8 +5,8 @@ char *Prompt(char *prompt, void(*callback)(char *, int));
 
 void MoveCursor(int key);
 
-void ProcessKeypress();
+void ProcessKeypress(void);
 
-void CleanConfig();
+void CleanConfig(void);
 
 #endif

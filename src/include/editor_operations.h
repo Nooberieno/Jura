@@ -3,8 +3,8 @@
 
 void InsertChar(int c);
 
-void InsertNewLine();
+void InsertNewLine(void);
 
-void RemoveChar();
+void RemoveChar(void);
 
 #endif

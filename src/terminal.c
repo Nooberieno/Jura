@@ -19,11 +19,11 @@ void die(const char *s){ //if an error occurers, reset the terminal settings, so
 	exit(1); 
 }
 
-void disableRawMode(){ //get the terminal out of rawmode
+void disableRawMode(void){ //get the terminal out of rawmode
 	if(tcsetattr(STDIN_FILENO, TCSAFLUSH, &config.og_terminal) == -1) die("Failed to change terminal attributes");
 }
 
-void enableRawMode(){ //set the terminal into raw mode(allow for jura to register keypresses without the user pressing enter)
+void enableRawMode(void){ //set the terminal into raw mode(allow for jura to register keypresses without the user pressing enter)
 	if (tcgetattr(STDIN_FILENO, &config.og_terminal) == -1) die("Failed to get terminal attributes"); 
 	atexit(disableRawMode); 
 	struct termios raw = config.og_terminal; 
@@ -36,7 +36,7 @@ void enableRawMode(){ //set the terminal into raw mode(allow for jura to registe
 	if (tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw) == -1) die("Failed to change terminal attributes"); 
 }
 
-int ReadKey(){ //read the keypresses from the users and check for certain modifier keys
+int ReadKey(void){ //read the keypresses from the users and check for certain modifier keys
 	int nread;
 	char c;
 	while((nread=read(STDIN_FILENO, &c, 1)) != 1){

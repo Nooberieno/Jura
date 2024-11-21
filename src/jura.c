@@ -13,7 +13,7 @@
 #include "include/input.h"
 
 
-void init(){ //Intialize the editor config
+void init(void){ //Intialize the editor config
 	config.x = 0;
 	config.y = 0;
 	config.renderx = 0;
@@ -81,4 +81,3 @@ int main(int argc, char *argv[]){ //main program loop
 	}
     return 0;
 }
-

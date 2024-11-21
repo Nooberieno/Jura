@@ -3,7 +3,7 @@
 
 #include "buffer.h"
 
-void Scroll();
+void Scroll(void);
 
 void DrawWelcomeMessage(struct buffer *buff);
 
@@ -23,7 +23,7 @@ void DrawStatusBar(struct buffer *buff);
 
 void DrawMessageBar(struct buffer *buff);
 
-void RefreshScreen();
+void RefreshScreen(void);
 
 void SetStatusMessage(const char *fmt, ...);
 

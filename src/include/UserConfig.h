@@ -17,7 +17,7 @@ extern UserConfig UConfig;
 
 int SyntaxToColor(int hl);
 
-void DefaultConfig();
+void DefaultConfig(void);
 
 void SaveConfig(struct UserConfig *uconfig, char *filename);
 

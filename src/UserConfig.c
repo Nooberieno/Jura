@@ -7,7 +7,7 @@
 
 UserConfig UConfig;
 
-void DefaultConfig(){ //Sets the default config
+void DefaultConfig(void){ //Sets the default config
 	char config_path[256];
 	char* XDG = getenv("XDG_CONFIG_HOME");
 	if(XDG == NULL){

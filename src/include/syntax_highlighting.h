@@ -18,6 +18,6 @@ int is_seperator(int c);
 
 void UpdateSyntax(eline *line);
 
-void SelectSyntaxHighlight();
+void SelectSyntaxHighlight(void);
 
 #endif

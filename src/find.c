@@ -24,8 +24,8 @@ void FindCallback(char *query, int key){ //Find every sequence that matches the 
 		direction = 1;
 		return;
 	}
-	else if(key == ARROW_RIGHT || ARROW_DOWN) direction = 1;
-	else if(key == ARROW_LEFT || ARROW_UP) direction = -1;
+	else if(key == ARROW_RIGHT || key == ARROW_DOWN) direction = 1;
+	else if(key == ARROW_LEFT || key == ARROW_UP) direction = -1;
 	else{
 		last_match = -1;
 		direction = 1;
@@ -53,7 +53,7 @@ void FindCallback(char *query, int key){ //Find every sequence that matches the 
 	}
 }
 
-void Find(){ //Allow the user to type a sequence they want to search for an trigger the FindCallback function with that sequence
+void Find(void){ //Allow the user to type a sequence they want to search for an trigger the FindCallback function with that sequence
 	int saved_cx = config.x;
 	int saved_cy = config.y;
 	int saved_coloff = config.coloff;
@@ -69,7 +69,7 @@ void Find(){ //Allow the user to type a sequence they want to search for an trig
 	}
 }
 
-void Golf(){ //Go to the line the user typed in as a query
+void Golf(void){ //Go to the line the user typed in as a query
 	char *query = Prompt("Go to line: %s (ESC to cancel)", NULL);
 	if(query == NULL) return;
 	int i = atoi(query);

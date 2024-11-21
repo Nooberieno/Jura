@@ -7,7 +7,7 @@ void InsertChar(int c){ //Insert a character into a line and update the X coordi
 	config.x++;
 }
 
-void InsertNewLine(){ //Insert a newline and update the internal cursor coordinates
+void InsertNewLine(void){ //Insert a newline and update the internal cursor coordinates
 	if(config.x == 0) InsertLine(config.y, "", 0);
 	else{
 		eline *line = &config.line[config.y];
@@ -21,7 +21,7 @@ void InsertNewLine(){ //Insert a newline and update the internal cursor coordina
 	config.x = 0;
 }
 
-void RemoveChar(){ // Remove a character from the file
+void RemoveChar(void){ // Remove a character from the file
 	if(config.y == config.numlines) return;
 	if(config.x == 0 && config.y == 0) return;
 	eline *line = &config.line[config.y];

@@ -3,11 +3,11 @@
 
 void die(const char *s);
 
-void disableRawMode();
+void disableRawMode(void);
 
-void enableRawMode();
+void enableRawMode(void);
 
-int ReadKey();
+int ReadKey(void);
 
 int getCursorPosition(int *lines, int *cols);
 

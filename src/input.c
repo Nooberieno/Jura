@@ -82,7 +82,7 @@ void MoveCursor(int key){ //Move the cursor according to the user input
 	}
 }
 
-void CleanConfig(){ //Free the config memory
+void CleanConfig(void){ //Free the config memory
 	if(config.line){
 		for(int i = 0; i < config.numlines; i++){
 			FreeLine(&config.line[i]);
@@ -95,7 +95,7 @@ void CleanConfig(){ //Free the config memory
 	}
 }
 
-void ProcessKeypress(){ //Tell jura what to do when certain keys are pressed
+void ProcessKeypress(void){ //Tell jura what to do when certain keys are pressed
 	static int quit_times = JuraQuitTimes;
 	int c = ReadKey();
 	switch (c){

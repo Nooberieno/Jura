@@ -47,7 +47,7 @@ void Open(char *filename){ //Open a file
 	config.mod = 0;
 }
 
-void Save(){ //Save a file
+void Save(void){ //Save a file
 	if(config.filename == NULL){
 		config.filename = Prompt("Save as: %s (ESC to Cancel)", NULL);
 		if(config.filename == NULL){

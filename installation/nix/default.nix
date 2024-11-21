@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> {} }:
 
-pkgs.stdenv.mkDerivation rec{
+pkgs.clangStdenv.mkDerivation rec{
 	pname = "jura";
 	version = "5.0";
 
