@@ -90,9 +90,6 @@ void CleanConfig(void){ //Free the config memory
 		free(config.line);
 	}
 	free(config.filename);
-	if(config.syntax){
-		free(config.syntax);
-	}
 }
 
 void ProcessKeypress(void){ //Tell jura what to do when certain keys are pressed
