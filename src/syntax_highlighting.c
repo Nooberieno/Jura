@@ -111,18 +111,22 @@ void UpdateSyntax(eline *line){ //Update the color based on the type of syntax
 
 void SelectSyntaxHighlight(void){ //Set the syntax highlight according to the file extensions and flags in SyntaxDatabaseEntries located in syntax.c
 	config.syntax = NULL;
-	if(config.filename == NULL) return;
-	char *ext = strrchr(config.filename, '.');
+	if(config.filename == NULL) return; 
+	char *ext = strrchr(config.filename, '.'); 
 	for(unsigned int j = 0; j < SyntaxDatabaseEntries; j++){
 		struct Syntax *s = &SyntaxDatabase[j];
 		unsigned int i = 0;
-		while(s->filematch[i]){
+		while(s->filematch[i]){ 
 			int is_ext = (s->filematch[i][0] == '.');
-			if(!((is_ext && ext && !strcmp(ext, s->filematch[i])) || (!is_ext && strstr(config.filename, s->filematch[i])))) return;
-			config.syntax = s;
-			int fileline;
-			for(fileline = 0; fileline < config.numlines; fileline++) UpdateSyntax(&config.line[fileline]);
+			if((is_ext && ext && !strcmp(ext, s->filematch[i])) || (!is_ext && strstr(config.filename, s->filematch[i]))){
+				config.syntax = s; 
+				int fileline;
+				for(fileline = 0; fileline < config.numlines; fileline++){ 
+					UpdateSyntax(&config.line[fileline]);
+				}
+				return;
+			}
+			i++;
 		}
-		i++;
 	}
 }	
